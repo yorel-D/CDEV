@@ -51,7 +51,12 @@ Grid *load_grid_from_file(char *filename) {
 void display_grid(Grid *grid) {
     for (int i = 0; i < grid->rows; i++) {
         for (int j = 0; j < grid->cols; j++) {
-            printf("%d ", grid->cells[i][j]);
+            int cell_value = grid->cells[i][j];
+            if (cell_value == -1) {
+                printf(" x ");
+            } else {
+                printf("%2d ", cell_value);
+            }
         }
         printf("\n");
     }
